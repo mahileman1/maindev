@@ -64,6 +64,8 @@ static void MX_GPIO_Init(void);
 int main(void)
 {
 
+  // test code
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
