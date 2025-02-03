@@ -1,7 +1,7 @@
 Added Febrary 1st, 2025:
 
 TODO:
-[x] Get qemu building 
+[ ] Get qemu building 
 [ ] Get win64 image loading/running/accessible via remote desktop
 [ ] Add generic qemu PCI device to image
 [ ] Establish logging for qemu device
@@ -20,22 +20,25 @@ Other possibilities?
 
 
 For building qemu, I had some helpful resources.
-I *think* the correct order is B, C&D, A.  I.e., get qemu building generic images, then the one detailed in the ebook. 
 
 A. Using a PDF detailing the steps to compile and add device for qemu windows instance.  It's an ebook written by Apriorit Inc. called "How to Develop Embedded Software Using theh QEMU Machine Emulator".  Not including it here since it looks copyright-y.
-This requires a qemu build that already works, and is based in ubuntu.  Since I don't want to run windows inside of ubuntu inside of windows, I'm building windows in windows...right? 
+The book assumes a stable qemu branch, ubuntu OS for build/launching qemu. Guest OS is windows 10 x64. 
 Qemu configuration details start on page 28 for my PDF. Make'ing takes a while. 
 
 Important notes: 
 - Use the curly apostrophe for ldflgs args (non-shift tilda key), or copy and paste it from below
 ./configure --target-list=x86_64-softmmu --enable-sdl --enable-debug --extra-ldflags="`pkg-config --libs openssl`"
--  Built executable goes to (qemu repo)/build/qemu-system-x86_64
+- Built executable goes to (qemu repo)/build/qemu-system-x86_64
 - Enable windows HyperVisor to use whpx
+
+*testing ubuntu ssh*
+
+* The below notes are old news, kept in case I try again to use Windows to build another Windows instance. I think it's possible, but almost all documentation is tailored towards ubuntu, translating it is beyond my knowledge.  Have seen some recent comments say it isn't possible. *
 
 https://superuser.com/questions/1707218/why-qemu-cant-detect-a-whpx-hyper-v-accelerator
 https://github.com/xqemu/xqemu/issues/112
 
-B. Quick note, but no details on official docs: https://www.qemu.org/docs/master/about/build-platforms.html#windows
+B. Quick note, but no details: https://www.qemu.org/docs/master/about/build-platforms.html#windows
 
 C. More details, using msys2: https://wiki.qemu.org/Hosts/W32#Native_builds_with_MSYS2
 

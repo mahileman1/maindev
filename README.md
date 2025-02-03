@@ -2,9 +2,7 @@
 
 ## Projects:
 ### qemuProj
-An attempt to make a top-to-bottom emulated device and kernel/user Windows driver, maybe even an SDK.  Using qemu PCI device emulation.
-
-I'm compiling the project on windows, see log for more install/reproduction details.
+An attempt to make a top-to-bottom emulated device and kernel/user Windows driver, maybe even an SDK.  Using qemu PCI device emulation, building and launching from ubuntu VM.
 
 ### stm32CanProj
 Looking into possibly emulating an ABS solenoid with an stm32, to remove said solenoid from a motorcycle.  Need to grab and spoof CAN messages to avoid the ECU freaking out. Practical? No. Safe? Also...no.
