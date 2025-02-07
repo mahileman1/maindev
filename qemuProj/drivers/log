@@ -1,0 +1,31 @@
+Kernel Driver: qemuDriver
+
+All of my research indicated that the easiest path forward was to just use Visual Studio to initialize the kernel driver project.   Let it be known that I wanted to write it from scratch
+
+I initially followed Microsoft's doc:
+https://learn.microsoft.com/en-us/windows-hardware/drivers/gettingstarted/writing-a-very-small-kmdf--driver
+
+At first I tried the non-empty "skeleton" kernel template, never got the dependencies to line up.  I stayed with just the empty "Hello World" driver noted on that page.
+
+1. Install latest Visual Studio
+2. Install packages:
+- Desktop Development
+(Individual Components)
+MSVC v143 - VS 2022 C++ ARM64/ARM64EC Spectre-mitigated libs (Latest)
+MSVC v143 - VS 2022 C++ x64/x86 Spectre-mitigated libs (Latest)
+C++ ATL for latest v143 build tools with Spectre Mitigations (ARM64/ARM64EC)
+C++ ATL for latest v143 build tools with Spectre Mitigations (x86 & x64)
+C++ MFC for latest v143 build tools with Spectre Mitigations (ARM64/ARM64EC)
+C++ MFC for latest v143 build tools with Spectre Mitigations (x86 & x64)
+Windows Driver Kit
+
+VS's intaller is hard to parse through, I suggest searching "c++ latest spectre" and check everything
+
+I then directly installed latest:
+Windows SDK https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
+WDK https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk
+
+Yes, WDK is re-downloaded.  
+
+I also added this to vc++ directories
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km;C:\Program Files (x86)\Windows Kits\10\Include\wdf\kmdf\1.33

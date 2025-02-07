@@ -1,1 +1,0 @@
-// Common elements/consts/macros between the Kernel and Usermode drivers should go here
