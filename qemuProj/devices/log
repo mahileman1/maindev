@@ -10,7 +10,8 @@ It really is just easier building and launching qemu on ubuntu.  I tried windows
     libpixman-1-dev libepoxy-dev libv4l-dev libpng-dev \
     libsdl2-dev libsdl2-image-dev libgtk-3-dev libgdk-pixbuf2.0-dev \
     libasound2-dev libpulse-dev \
-    libx11-dev
+    libx11-dev \
+    libslirp-dev # needed for configuring network via virtio
 
 I'm using a PDF detailing the steps to compile and add device for qemu windows instance.  It's an ebook written by Apriorit Inc. called "How to Develop Embedded Software Using the QEMU Machine Emulator".  Not including it here since it looks copyright-y.
 The book assumes a stable qemu branch, ubuntu OS for build/launching qemu. Guest OS is windows 10 x64. 
@@ -20,7 +21,8 @@ Qemu configuration details start on page 28 for my PDF. Here's the short version
 --target-list=x86_64-softmmu \
 --enable-sdl \
 --enable-debug \
---extra-ldflags="`pkg-config --libs openssl`"
+--extra-ldflags="`pkg-config --libs openssl`" \
+--enable-slirp
 
 make
 
@@ -39,14 +41,42 @@ Should look something like...
  -cpu host \
  -smp cpus=4,cores=4,threads=1,sockets=1 \
  -hda /<path>/windowsDev.img \
- -cdrom /<path>/windowsImage.iso \
- -net nic
+ -cdrom /<path>/windowsImage.iso 
 
-Do NOT use the snapshot option as noted in the guide, it's used to throw away all changes to the drive, opposite of what we're trying to do on boot
+Do NOT use the snapshot option as noted in the guide, it's used to throw away all changes to the drive, opposite of what we're trying to do 
 
 Go through windows installation, then you can remove the -cdrom option and just use your windowsDev.img drive. 
 
+Next up, loading virtio network devices so that you can enable network connection on the VM.  We'll need to load the virtio ISO the same way we loaded the windows ISO.  I installed the drivers from the ISO, then added the virtio network card, but it might be able to be done all at once.  Here's the process separated:
+
+Virtio ISO download:
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+
+./build/qemu-system-x86_64 \
+ -enable-kvm \
+ -m 4G \ 
+ -cpu host \
+ -smp cpus=4,cores=4,threads=1,sockets=1 \
+ -hda /<path>/windowsDev.img \
+ -cdrom /<path>/virtioDownload.iso
+
+Hop into vm, open disk, install, shutdown.  Then, use virtio network card
+
+./build/qemu-system-x86_64 \
+ -enable-kvm \
+ -m 4G \ 
+ -cpu host \
+ -smp cpus=4,cores=4,threads=1,sockets=1 \
+ -hda /<path>/windowsDev.img \
+ -nic user,model=virtio-net-pci
+
+At this point, you should have a connected windows VM.
+
 Next up, devices...
+
+By default, qemu has a well documented blank PCI device, you can enable it by adding '-device edu' to the executable.  In the windows VM -> device manager, it should show up under "Other Devices", with no attached driver.
+
+Currently looking into the best way to integrate adding a new device without modifying the qemu submodule, for portability...
 
 
 * The below notes are old news, kept in case I try again to use Windows to build another Windows instance. I think it's possible, but almost all documentation is tailored towards ubuntu, translating it is beyond my knowledge.  Have seen some recent comments say it isn't possible. *

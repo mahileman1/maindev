@@ -29,3 +29,13 @@ Yes, WDK is re-downloaded.
 
 I also added this to vc++ directories
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km;C:\Program Files (x86)\Windows Kits\10\Include\wdf\kmdf\1.33
+
+I added the build folders to .gitignore for portability
+
+Starting with this guide for now:
+https://learn.microsoft.com/en-us/windows-hardware/drivers/pci/
+
+It points to this example:
+https://github.com/microsoft/windows-driver-samples/tree/main/general/PLX9x5x
+
+

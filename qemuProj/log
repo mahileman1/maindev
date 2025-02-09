@@ -2,15 +2,17 @@ Added Febrary 1st, 2025:
 
 The initial intent of this project is to make an easy to follow implementation of a top-to-bottom, hardware to user, programmable windows experience.  This is via Qemu, custom PCI device, windows kernel and user-mode drivers.  You can find more info in the more specific directories. 
 
+Project specific qemu install params (and help) is in the devices folder
+
 TODO:
 [x] Get qemu building 
 [ ] Get win64 image loading/running/accessible via remote desktop
 [ ] Add generic qemu PCI device to image
 [ ] Establish logging for qemu device
-[ ] Add basic windows kernel driver
+[x] Add basic windows kernel driver
 [ ] Attach kernel driver to qemu device
 [ ] Communicate kernel driver -> qemu device, via I/O
-[ ] Add windows user-mode driver
+[x] Add windows user-mode driver
 [ ] Connect to and use user-mode driver
 [ ] Connect user-mode and kernel driver
 [ ] Establish user to device interactions
