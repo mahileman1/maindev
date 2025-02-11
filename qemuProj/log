@@ -1,13 +1,11 @@
 Added Febrary 1st, 2025:
 
-The initial intent of this project is to make an easy to follow implementation of a top-to-bottom, hardware to user, programmable windows experience.  This is via Qemu, custom PCI device, windows kernel and user-mode drivers.  You can find more info in the more specific directories. 
-
-Project specific qemu install params (and help) is in the devices folder
+The intent of this project is to make an easy to follow implementation of a top-to-bottom, hardware to user, programmable PCI device in windows. I'll be using a basic build of Qemu with a custom PCI device injected to start up a windows VM.  I'll be tracking general details here, see log for building details/tutorials
 
 TODO:
 [x] Get qemu building 
 [ ] Get win64 image loading/running/accessible via remote desktop
-[ ] Add generic qemu PCI device to image
+[ ] Add custom qemu PCI device to image
 [ ] Establish logging for qemu device
 [x] Add basic windows kernel driver
 [ ] Attach kernel driver to qemu device
@@ -21,4 +19,4 @@ Other possibilities?
 [ ] Python library
 [ ] Debugging tools (symbol production, link source)
 [ ] VM Infrastructure/management tools
-[ ] Linux Driver
+[ ] Linux VM and Driver(s)
