@@ -1,6 +1,6 @@
 Added Febrary 1st, 2025:
 
-The initial intent of this project is to make an easy to follow implementation of a top-to-bottom, hardware to user, programmable windows experience.  This is via Qemu, custom PCI device, windows kernel and user-mode drivers.  You can find more info in the more specific directories. 
+The intent of this project is to make an easy to follow implementation of a top-to-bottom, hardware to user, programmable PCI device in windows. I'll be using a basic build of Qemu with a custom PCI device injected to start up a windows VM.  I'll be tracking general details here, see log for building details/tutorials
 
 Using teamviewer for remote desktop, since remote desktop isn't available for windows home. 
 
@@ -23,4 +23,4 @@ Other possibilities?
 [ ] Python library
 [ ] Debugging tools (symbol production, link source)
 [ ] VM Infrastructure/management tools
-[ ] Linux Driver
+[ ] Linux VM and Driver(s)
