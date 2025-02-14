@@ -1,6 +1,4 @@
-Kernel Driver: qemuDriver
-
-All of my research indicated that the easiest path forward was to just use Visual Studio to initialize the kernel driver project.   Let it be known that I wanted to write it from scratch
+All of my research indicated that the easiest path forward was to just use Visual Studio to initialize the kernel driver project.   Let it be known that I wanted to write it from scratch :)
 
 I initially followed Microsoft's doc:
 https://learn.microsoft.com/en-us/windows-hardware/drivers/gettingstarted/writing-a-very-small-kmdf--driver

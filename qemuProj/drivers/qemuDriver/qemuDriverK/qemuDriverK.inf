@@ -56,7 +56,7 @@ KmdfLibraryVersion = $KMDFVERSION$
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
-ManufacturerName = "<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ManufacturerName = "markyMark"
 DiskName = "qemuDriverK Installation Disk"
 qemuDriverK.DeviceDesc = "qemuDriverK Device"
 qemuDriverK.SVCDESC = "qemuDriverK Service"

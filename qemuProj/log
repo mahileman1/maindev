@@ -2,11 +2,13 @@ Added Febrary 1st, 2025:
 
 The initial intent of this project is to make an easy to follow implementation of a top-to-bottom, hardware to user, programmable windows experience.  This is via Qemu, custom PCI device, windows kernel and user-mode drivers.  You can find more info in the more specific directories. 
 
+Using teamviewer for remote desktop, since remote desktop isn't available for windows home. 
+
 Project specific qemu install params (and help) is in the devices folder
 
 TODO:
 [x] Get qemu building 
-[ ] Get win64 image loading/running/accessible via remote desktop
+[x] Get win64 image loading/running/accessible via remote desktop
 [ ] Add generic qemu PCI device to image
 [ ] Establish logging for qemu device
 [x] Add basic windows kernel driver
