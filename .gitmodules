@@ -1,5 +1,5 @@
 [submodule "qemu"]
-	path = qemu
+	path = qemuProj/submodules/qemu
 	url = https://github.com/qemu/qemu
 [submodule "qemuProj/submodules/Windows-driver-samples"]
 	path = qemuProj/submodules/Windows-driver-samples
