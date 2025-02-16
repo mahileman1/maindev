@@ -4,11 +4,11 @@
 
 [Version]
 Signature   = "$WINDOWS NT$"
-Class       = System ; TODO: specify appropriate Class
-ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Class       = qemu
+ClassGuid   = {5082fa56-18b3-4d38-a350-a6c450b27ab0}
 Provider    = %ManufacturerName%
 CatalogFile = qemuDriverK.cat
-DriverVer   = ; TODO: set DriverVer in stampinf property pages
+DriverVer   = 02/16/2025,1.0.0
 PnpLockdown = 1
 
 [DestinationDirs]
@@ -20,35 +20,55 @@ DefaultDestDir = 13
 [SourceDisksFiles]
 qemuDriverK.sys = 1,,
 
+;-------------------------------------------------------------------------
+; Class Section
+;-------------------------------------------------------------------------
+[ClassInstall32]
+Addreg         = qemuClassReg
+
+[qemuClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+HKR,,DeviceCharacteristics,0x10001,0x100     ;Use same security checks on relative opens
+HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)" ;Allow generic all access to system and built-in Admin.
+
+
 ;*****************************************
 ; Install Section
 ;*****************************************
+;
+;  PCI\VEN_1234&DEV_11E8&CC_00FF
+;  PCI\VEN_1234&DEV_11E8&CC_00FF00
+;  PCI\VEN_1234&DEV_11E8&SUBSYS_11001AF4
+;  PCI\VEN_1234&DEV_11E8&SUBSYS_11001AF4&REV_10
+;
 
 [Manufacturer]
 %ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
 
 [Standard.NT$ARCH$.10.0...16299]
-%qemuDriverK.DeviceDesc% = qemuDriverK_Device, Root\qemuDriverK ; TODO: edit hw-id
+%qemuDriverK.DeviceDesc% = qemuDevice_Inst, PCI\VEN_1234&DEV_11E8
 
-[qemuDriverK_Device.NT]
+
+[qemuDevice_Inst.NT]
 CopyFiles = File_Copy
 
 [File_Copy]
 qemuDriverK.sys
 
 ;-------------- Service installation
-[qemuDriverK_Device.NT.Services]
-AddService = qemuDriverK,%SPSVCINST_ASSOCSERVICE%, qemuDriverK_Service_Inst
+[qemuDevice_Inst.NT.Services]
+AddService = qemuDriverK,%SPSVCINST_ASSOCSERVICE%, qemuService_Inst
 
 ; -------------- qemuDriverK driver install sections
-[qemuDriverK_Service_Inst]
+[qemuService_Inst]
 DisplayName    = %qemuDriverK.SVCDESC%
 ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
 StartType      = 3               ; SERVICE_DEMAND_START
 ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
 ServiceBinary  = %13%\qemuDriverK.sys
 
-[qemuDriverK_Device.NT.Wdf]
+[qemuDevice_Inst.NT.Wdf]
 KmdfService = qemuDriverK, qemuDriverK_wdfsect
 
 [qemuDriverK_wdfsect]
@@ -56,6 +76,7 @@ KmdfLibraryVersion = $KMDFVERSION$
 
 [Strings]
 SPSVCINST_ASSOCSERVICE = 0x00000002
+ClassName = "Qemu Device"
 ManufacturerName = "markyMark"
 DiskName = "qemuDriverK Installation Disk"
 qemuDriverK.DeviceDesc = "qemuDriverK Device"

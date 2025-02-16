@@ -1,3 +1,6 @@
 [submodule "qemu"]
 	path = qemu
 	url = https://github.com/qemu/qemu
+[submodule "qemuProj/submodules/Windows-driver-samples"]
+	path = qemuProj/submodules/Windows-driver-samples
+	url = git@github.com:microsoft/Windows-driver-samples.git

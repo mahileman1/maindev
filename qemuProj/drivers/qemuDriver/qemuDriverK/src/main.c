@@ -1,12 +1,8 @@
 // Finally, some code
 
 
-#include <ntddk.h>
-#include <wdf.h>
 
-
-DRIVER_INITIALIZE DriverEntry;
-EVT_WDF_DRIVER_DEVICE_ADD KmdfEvtQemuDeviceAdd;
+#include "precomp.h"
 
 // DriverObject -> Pointer to driver object
 // RegistryPath -> pointer to path (string) to driver-specific registry key
@@ -70,11 +66,12 @@ qemuEvtDeviceAdd(
     // - Device is enumerated (plugged in, system reboot)
     // - Devices return from low-power state
     // - PnP manager redistributes HW resources
-    pnpPowerCallbacks.EvtDeviceD0Entry = qemuD0Entry;
-    pnpPowerCallbacks.EvtDeviceD0Exit = qemuD0Exit;
+    pnpCallbacks.EvtDeviceD0Entry = qemuD0Entry;
+    pnpCallbacks.EvtDeviceD0Exit = qemuD0Exit;
 
     WdfDeviceInitSetPnpPowerEventCallbacks(DeviceInit, &pnpCallbacks);
     // PnP stuff set
+    
     // Clean slate
     WDF_OBJECT_ATTRIBUTES_INIT_CONTEXT_TYPE(&attributes, DEVICE_EXTENSION);
 
@@ -89,21 +86,21 @@ qemuEvtDeviceAdd(
     //
     attributes.SynchronizationScope = WdfSynchronizationScopeDevice;
 
-    attributes.EvtCleanupCallback = qemuCleanup;
+    attributes.EvtCleanupCallback = qemuDeviceCleanup;
 
     status = WdfDeviceCreate(&DeviceInit,
         &attributes,
         &device
     );
 
-    PDEVICE_EXTENSION devExtension = qemuGetDeviceContext(device);
-    devExtensions->device = device;
+    //PDEVICE_EXTENSION devExtension = qemuGetDeviceContext(device);
+    //devExtension->device = device;
 
-    status = WdfDeviceCreateDeviceInterface(
-        device,
-        /**/, // GUID? 
-        NULL
-    );
+    //status = WdfDeviceCreateDeviceInterface(
+    //    device,
+    //    /**/, // GUID? 
+     //   NULL
+    //);
 
 
     return status;
