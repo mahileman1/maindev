@@ -47,7 +47,7 @@ HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)" ;Allow generic all access to system
 %ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
 
 [Standard.NT$ARCH$.10.0...16299]
-%qemuDriverK.DeviceDesc% = qemuDevice_Inst, PCI\VEN_1234&DEV_11E8
+%qemuDriverK.DeviceDesc% = qemuDevice_Inst, PCI\VEN_1234&DEV_11E8&CC_00FF
 
 
 [qemuDevice_Inst.NT]
