@@ -36,4 +36,12 @@ https://learn.microsoft.com/en-us/windows-hardware/drivers/pci/
 It points to this example:
 https://github.com/microsoft/windows-driver-samples/tree/main/general/PLX9x5x
 
+2-16-2025
+I've been working on structuring the driver to attach to the device, I found a couple very useful sources:
+For driver install definitions, i.e. how to define your driver and attach which devices to attach to (I think), the fields in this sections are useful:
+https://learn.microsoft.com/en-us/windows-hardware/drivers/install/inf-version-section
 
+Also, found a new driver sample in that same git directory that is also very helpful
+https://github.com/microsoft/Windows-driver-samples/tree/main/general/pcidrv
+
+With those two examples, I was able to piece together something that at least compiles...
