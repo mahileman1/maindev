@@ -44,4 +44,7 @@ https://learn.microsoft.com/en-us/windows-hardware/drivers/install/inf-version-s
 Also, found a new driver sample in that same git directory that is also very helpful
 https://github.com/microsoft/Windows-driver-samples/tree/main/general/pcidrv
 
-With those two examples, I was able to piece together something that at least compiles...
+With those two examples, I was able to piece together something that compiles and attaches!
+
+I transferred over the entire "Debug" folder to VM in qemuProj/drivers/qemuDriver/x64/
+Then, in qemuDriverK, right click qemuDriverK.inf and install.  It should show up in device manager now :) 

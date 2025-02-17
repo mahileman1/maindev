@@ -9,10 +9,10 @@ Project specific qemu install params (and help) is in the devices folder
 TODO:
 [x] Get qemu building 
 [x] Get win64 image loading/running/accessible via remote desktop
-[ ] Add generic qemu PCI device to image
-[ ] Establish logging for qemu device
+[x] Add generic qemu PCI device to image
+[ ] Add custom PCI device to image
 [x] Add basic windows kernel driver
-[ ] Attach kernel driver to qemu device
+[x] Attach kernel driver to qemu device
 [ ] Communicate kernel driver -> qemu device, via I/O
 [x] Add windows user-mode driver
 [ ] Connect to and use user-mode driver
