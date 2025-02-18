@@ -1,0 +1,23 @@
+﻿  Building 'qemuDriverU' with toolset 'WindowsUserModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Debug\qemuDriverU.inf
+  Stamping [Version] section with DriverVer=02/16/2025,17.51.57.556
+  main.cpp
+  qemuDriverU.vcxproj -> C:\Git\maindev\qemuProj\drivers\qemuDriver\x64\Debug\qemuDriverU.dll
+  Done Adding Additional Store
+  Successfully signed: C:\Git\maindev\qemuProj\drivers\qemuDriver\x64\Debug\qemuDriverU.dll
+  
+  Driver is 'Universal'.
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Git\maindev\qemuProj\drivers\qemuDriver\x64\Debug\qemuDriverU\qemudriveru.cat
+  Done Adding Additional Store
+  Successfully signed: C:\Git\maindev\qemuProj\drivers\qemuDriver\x64\Debug\qemuDriverU\qemudriveru.cat
+  
