@@ -1,4 +1,4 @@
-/qemuProj/drivers/qemuDriver/x64/*
-/qemuProj/drivers/qemuDriver/qemuDriverU/x64/*
-/qemuProj/drivers/qemuDriver/qemuDriverK/x64/*
-/qemuProj/drivers/qemuDriver/.vs/*
+/qemuProj/drivers/windows/qemuDriver/x64/*
+/qemuProj/drivers/windows/qemuDriver/qemuDriverU/x64/*
+/qemuProj/drivers/windows/qemuDriver/qemuDriverK/x64/*
+/qemuProj/drivers/windows/qemuDriver/.vs/*
