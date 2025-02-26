@@ -1,0 +1,9 @@
+menu "Qemu PCI Driver"
+
+config MY_PCI_DRIVER
+	tristate "My Qemu PCI Driver"
+	depends on PCI
+	help
+	  A simple PCI driver example.
+
+endmenu
