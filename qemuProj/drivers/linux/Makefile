@@ -1,14 +1,12 @@
 # Define the module name
 obj-m += qemuDriver.o
+qemuDriver-objs := src/main.o 
 
 # Specify the directory containing the kernel source
 KDIR := /lib/modules/$(shell uname -r)/build
 
-# Specify the directory containing the source files
-PWD := $(shell pwd)
-
 # Add the "include" directory as an include directory
-EXTRA_CFLAGS += -I$(PWD)/include
+ccflags-y += -I$(PWD)/include
 
 # Default target
 all:

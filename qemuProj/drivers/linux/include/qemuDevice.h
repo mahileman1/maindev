@@ -1,7 +1,5 @@
 
 
-#include <stdint.h>
-
 typedef struct arrayRegs {
     uint32_t data[20];
 } arrayRegs;

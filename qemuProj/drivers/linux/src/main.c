@@ -9,13 +9,13 @@
 
 static int my_pci_probe(struct pci_dev *dev, const struct pci_device_id *id)
 {
-    //printk(KERN_INFO "PCI device found: vendor=0x%x, device=0x%x\n", id->vendor, id->device);
+    printk(KERN_INFO "PCI device found: vendor=0x%x, device=0x%x\n", id->vendor, id->device);
     return 0;
 }
 
 static void my_pci_remove(struct pci_dev *dev)
 {
-    //printk(KERN_INFO "PCI device removed\n");
+    printk(KERN_INFO "PCI device removed\n");
 }
 
 static const struct pci_device_id my_pci_ids[] = {
@@ -42,9 +42,8 @@ static void __exit my_pci_exit(void)
     pci_unregister_driver(&my_pci_driver);
 }
 
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("GitHub Copilot");
-MODULE_DESCRIPTION("A simple PCI driver");
+MODULE_AUTHOR("Mark Hileman");
+MODULE_DESCRIPTION("PCI Driver for Qemu edu device");
 MODULE_VERSION("0.1");
 
 module_init(my_pci_init);
