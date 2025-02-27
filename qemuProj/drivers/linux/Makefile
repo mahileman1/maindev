@@ -8,10 +8,20 @@ KDIR := /lib/modules/$(shell uname -r)/build
 # Add the "include" directory as an include directory
 ccflags-y += -I$(PWD)/include
 
+BUILD_DIR := $(PWD)/bin
+BUILD_DIR_MAKEFILE := $(BUILD_DIR)/Makefile
+
+
 # Default target
-all:
-	$(MAKE) -C $(KDIR) M=$(PWD) modules
+all: $(BUILD_DIR_MAKEFILE)
+	$(MAKE) -C $(KDIR) M=$(BUILD_DIR) modules
+
+$(BUILD_DIR):
+	mkdir -p "$@"
+
+$(BUILD_DIR_MAKEFILE): $(BUILD_DIR)	
+	touch "$@"
 
 # Clean target
 clean:
-	$(MAKE) -C $(KDIR) M=$(PWD) clean
+	$(MAKE) -C $(KDIR) M=$(BUILD_DIR) clean
