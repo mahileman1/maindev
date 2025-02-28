@@ -7,8 +7,6 @@
 
 */
 
-
-
 #include <ntddk.h>
 #include <wdf.h>
 // TODO: Would love to use ctypes, but stdint doesn't like vc runtime warnings? 

@@ -13,7 +13,7 @@ typedef struct exampleRegs {
 	USHORT reg2;
 	USHORT reg3;
 	
-	// TODO: I'm really more comfortable with ctypes, but stdint throws warnings
+	// TODO: I'm really more comfortable with ctypes, but stdint throws warnings?
 	// at the moment
 	//uint32_t signature;
 	//uint32_t crc;

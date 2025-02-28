@@ -1,11 +1,9 @@
 // Finally, some code
 
-
-
+// Contains all required headers for project
 #include "precomp.h"
 
-// DriverObject -> Pointer to driver object
-// RegistryPath -> pointer to path (string) to driver-specific registry key
+
 NTSTATUS
 DriverEntry(
     _In_ PDRIVER_OBJECT     DriverObject,
@@ -93,15 +91,9 @@ qemuEvtDeviceAdd(
         &device
     );
 
+    // Next issue - having weird compiler issues here
     //PDEVICE_EXTENSION devExtension = qemuGetDeviceContext(device);
     //devExtension->device = device;
-
-    //status = WdfDeviceCreateDeviceInterface(
-    //    device,
-    //    /**/, // GUID? 
-     //   NULL
-    //);
-
 
     return status;
 }
