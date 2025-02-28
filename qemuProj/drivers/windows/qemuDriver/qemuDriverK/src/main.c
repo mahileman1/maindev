@@ -71,7 +71,7 @@ qemuEvtDeviceAdd(
     // PnP stuff set
     
     // Clean slate
-    WDF_OBJECT_ATTRIBUTES_INIT_CONTEXT_TYPE(&attributes, DEVICE_EXTENSION);
+    WDF_OBJECT_ATTRIBUTES_INIT_CONTEXT_TYPE(&attributes, qemuDeviceExtension);
 
     // Took this from mic's example - TODO I don't understand this
     // By opting for SynchronizationScopeDevice, we tell the framework to
