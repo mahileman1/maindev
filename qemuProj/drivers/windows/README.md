@@ -7,15 +7,15 @@ At first I tried the non-empty "skeleton" kernel template, never got the depende
 
 1. Install latest Visual Studio
 2. Install packages:
-- Desktop Development
+* Desktop Development
 (Individual Components)
-MSVC v143 - VS 2022 C++ ARM64/ARM64EC Spectre-mitigated libs (Latest)
-MSVC v143 - VS 2022 C++ x64/x86 Spectre-mitigated libs (Latest)
-C++ ATL for latest v143 build tools with Spectre Mitigations (ARM64/ARM64EC)
-C++ ATL for latest v143 build tools with Spectre Mitigations (x86 & x64)
-C++ MFC for latest v143 build tools with Spectre Mitigations (ARM64/ARM64EC)
-C++ MFC for latest v143 build tools with Spectre Mitigations (x86 & x64)
-Windows Driver Kit
+* MSVC v143 - VS 2022 C++ ARM64/ARM64EC Spectre-mitigated libs (Latest)
+* MSVC v143 - VS 2022 C++ x64/x86 Spectre-mitigated libs (Latest)
+* C++ ATL for latest v143 build tools with Spectre Mitigations (ARM64/ARM64EC)
+* C++ ATL for latest v143 build tools with Spectre Mitigations (x86 & x64)
+* C++ MFC for latest v143 build tools with Spectre Mitigations (ARM64/ARM64EC)
+* C++ MFC for latest v143 build tools with Spectre Mitigations (x86 & x64)
+* Windows Driver Kit
 
 VS's intaller is hard to parse through, I suggest searching "c++ latest spectre" and check everything
 
