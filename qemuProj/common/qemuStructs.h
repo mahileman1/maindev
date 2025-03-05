@@ -1,11 +1,8 @@
-#pragma once
 /*
 
  Source for defining various needed structures, macros, data for this driver
 
 */
-
-// All include's declared in precomp.h
 
 // Taken from qemu source -> qemu/hw/misc/edu.c
 typedef struct readRegs {
@@ -52,17 +49,3 @@ typedef union qemuDeviceRegs {
 	writeRegs write;
 } qemuDeviceRegs;
 
-// Extension of WDF device, feilds are meaningless for now
-typedef struct deviceExtension {
-	WDFDEVICE device;
-	qemuDeviceRegs regs;
-	PUCHAR regsBase;
-	ULONG regsLength;
-} qemuDeviceExtension;
-
-//  This will generate the function to be used for retreiving 
-//  the DEVICE_EXTENSION pointer.
-WDF_DECLARE_CONTEXT_TYPE_WITH_NAME(qemuDeviceExtension, qemuGetDeviceContext);
-
-//	Attempting to define an interface guid? 
-//DEFINE_GUID (GUID_QEMU, );

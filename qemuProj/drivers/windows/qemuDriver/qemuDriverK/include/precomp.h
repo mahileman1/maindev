@@ -12,6 +12,10 @@
 // TODO: Would love to use ctypes, but stdint doesn't like vc runtime warnings? 
 //#include <stdint.h>
 
+// TODO: Find a better way to do this without using VS proj props
+// Include before qemuDevice.h
+#include "..\..\..\..\..\common\qemuStructs.h"
+
 #include "callbacks.h"
-#include "qemuStructs.h"
+#include "qemuDevice.h"
 
